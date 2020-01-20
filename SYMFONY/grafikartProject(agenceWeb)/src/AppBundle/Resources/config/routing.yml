@@ -1,0 +1,70 @@
+home:
+    path: /home
+    defaults: { _controller: AppBundle:Home:index }
+property_index:
+    path: /properties
+    defaults: { _controller: AppBundle:Property:index }
+property_show:
+    path: /property/{slug}-{id}
+    defaults: { _controller: AppBundle:Property:show }
+    requirements:
+        slug: ([a-z0-9\-])+
+        id: \d+
+
+#################  ADMIN ROUTING   #############################################
+#################  PROPERTY   ##################################################
+
+admin_property_index:
+    path: /admin/properties
+    defaults: { _controller: AppBundle:Admin\AdminProperty:index }
+
+admin_property_edit:
+    path: /admin/property/edit/{id}
+    defaults: { _controller: AppBundle:Admin\AdminProperty:edit }
+    requirements:
+        id: \d+
+
+admin_property_new:
+    path: /admin/property/create
+    defaults: { _controller: AppBundle:Admin\AdminProperty:create }
+
+admin_property_delete:
+    path: /admin/property/delete/{id}
+    defaults: { _controller: AppBundle:Admin\AdminProperty:delete }
+    requirements:
+        id: \d+
+
+#################  OPTION_   ##################################################
+
+admin_option_index:
+    path:     /admin/option
+    defaults: { _controller: AppBundle:Admin\AdminOption_:index }
+    methods:  GET
+
+admin_option_show:
+    path:     /admin/option/{id}/show
+    defaults: { _controller: AppBundle:Admin\AdminOption_:show }
+    methods:  GET
+
+admin_option_new:
+    path:     /admin/option/new
+    defaults: { _controller: AppBundle:Admin\AdminOption_:new }
+    methods:  [GET, POST]
+
+admin_option_edit:
+    path:     /admin/option/{id}/edit
+    defaults: { _controller: AppBundle:Admin\AdminOption_:edit }
+    methods:  [GET, POST]
+
+admin_option_delete:
+    path:     /admin/option/{id}/delete
+    defaults: { _controller: AppBundle:Admin\AdminOption_:delete }
+    methods:  DELETE
+
+###############################################################################
+
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login }
+logout:
+    path: /logout

@@ -1,0 +1,7 @@
+<div class="form-group">
+    {{ form_label(form.image.file,"L'image",{'label_attr':{'class':'col-md-2 control-label'}}) }}
+    <div class="col-md-10">
+        {{ form_widget(form.image.file) }}
+        {{ form_errors(form.image.file) }}
+    </div>
+</div>

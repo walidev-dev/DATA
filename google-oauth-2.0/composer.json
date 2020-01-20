@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/var-dumper": "^4.4",
+        "guzzlehttp/guzzle": "6.3.3"
+    }
+}

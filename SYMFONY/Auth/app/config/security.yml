@@ -1,0 +1,32 @@
+security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        db_provider:
+            entity:
+                class: AppBundle:User
+                property: username
+
+    firewalls:
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            provider: db_provider
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: app_home
+            logout:
+                path: logout
+                target: login
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+

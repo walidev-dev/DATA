@@ -1,0 +1,33 @@
+security:
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+
+    providers:
+        db_provider:
+            entity:
+                class: AppBundle\Entity\User
+                property: username
+
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            #http_basic: true
+            provider: db_provider
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: admin_property_index
+            logout:
+                path: logout
+                target: login
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }

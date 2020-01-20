@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title 'Editer un bien' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css">
+{% endblock %}
+{% block body %}
+    <div class="container mt-4">
+        {% if errors is defined %}
+            {% if errors is not empty %}
+                <div class="alert alert-danger">
+                    {% for error in errors %}
+                        {{ error.message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+        <h1>Editer un bien</h1>
+        {% include 'admin/property/form.html.twig' %}
+    </div>
+
+{% endblock %}
+
+ {% block javascripts %}
+     {{ parent() }}
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+     <script src="{{ asset('js/app.js') }}"></script>
+ {% endblock %}

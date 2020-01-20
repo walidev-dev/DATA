@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>list of posts</h1>
+    <a href="{{ path('post_create') }}" class="btn btn-primary">Add Post</a><br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Post Title</th>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td>{{ post.subCategory.category.name }}</td>
+                <td>{{ post.subCategory.name }}</td>
+                <td>
+                    <a href="{{ path('post_edit',{id: post.id}) }}" class="btn btn-default">
+                        Edit
+                    </a>
+
+                    <form action="{{ path('post_remove',{id: post.id}) }}"
+                          method="post"
+                          style="display:inline-block"
+                          onsubmit="return confirm('Êtes-Vous sûr de vouloir supprimer cet article ?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

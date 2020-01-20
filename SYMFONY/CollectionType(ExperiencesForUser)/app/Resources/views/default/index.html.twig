@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.fullname) }}
+    <div class="" id="exp_list" data-prototype="{{ form_widget(form.experiences.vars.prototype)|e('html_attr') }}">
+        {% for row in form.experiences %}
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <strong>{{ row.vars.value.title }}</strong>
+                </div>
+                <div class="panel-body">
+                    {{ form_row(row.title) }}
+                    {{ form_row(row.location) }}
+                    {{ form_row(row.dateFrom) }}
+                    {{ form_row(row.dateTo) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

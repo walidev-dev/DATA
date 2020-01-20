@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <h1>Post creation</h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" class="btn btn-block btn-primary"/>
+        {{ form_end(form) }}
+
+        <ul style="margin-top: 15px">
+            <li>
+                <a href="{{ path('post_index') }}" style="font-size: 18px">Back to the list</a>
+            </li>
+        </ul>
+
+{% endblock %}

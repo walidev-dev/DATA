@@ -1,0 +1,14 @@
+services:
+    app_mailer:
+        class: AppBundle\Mailer\AppMailer
+        arguments: ['@mailer','@templating']
+
+    badge_manager:
+        class: Scitap\BadgeBundle\Manager\BadgeManager
+        arguments: ['@doctrine.orm.entity_manager','@event_dispatcher']
+
+    badge_subcriber:
+        class: AppBundle\Subscriber\BadgeSubscriber
+        arguments: ['@app_mailer']
+        tags:
+            - { name: kernel.event_subscriber }

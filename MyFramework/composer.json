@@ -1,0 +1,25 @@
+{
+  "require": {
+    "twig/twig": "^2.4",
+    "guzzlehttp/psr7": "1.4.2",
+    "http-interop/response-sender": "^1.0",
+    "zendframework/zend-expressive-fastroute": "2.0.0",
+    "http-interop/http-middleware": "^0.5.0",
+    "php-di/php-di": "^5.4",
+    "fzaninotto/faker": "^1.9",
+    "pagerfanta/pagerfanta": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "src/Framework",
+      "App\\": "src/",
+      "Tests\\": "Tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.2",
+    "filp/whoops": "2.3.1",
+    "squizlabs/php_codesniffer": "3.0.2",
+    "symfony/var-dumper": "^4.3"
+  }
+}

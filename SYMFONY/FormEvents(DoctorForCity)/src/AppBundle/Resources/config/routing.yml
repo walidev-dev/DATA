@@ -1,0 +1,4 @@
+app_medecin:
+    resource: "@AppBundle/Resources/config/routing/medecin.yml"
+    prefix:   /medecin
+

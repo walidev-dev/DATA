@@ -1,0 +1,27 @@
+{% extends 'Advert/layout.html.twig' %}
+{% block title %} {{ parent() }} - Ajout{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    .help-block{
+        color: #885c49;
+    }
+    </style>
+{% endblock %}
+{% block body %}
+    <h3>Ajouter une annonce</h3>
+    {% if listErrors is defined %}
+        {% if listErrors|length > 0 %}
+                <div class="alert alert-danger">
+                    {% for error in listErrors %}
+                        {{ error.message }} <br>
+                    {% endfor %}
+                </div>
+        {% endif %}
+    {% endif %}
+    {{ include('Advert/form.html.twig') }}
+    <div class="alert alert-info">
+        <i class="glyphicon glyphicon-info-sign" style="font-size: 20px"></i>
+        Attention : cette annonce sera ajoutée directement sur la page d'accueil aprés validation du formulaire
+    </div>
+{% endblock %}

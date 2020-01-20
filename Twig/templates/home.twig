@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+{% block title %} {{ parent() }} Accueil {% endblock %}
+{% block body %}
+<h1>Les derniers tutoriels</h1>
+<ul>
+    {% for tutoriel in tutoriels %}
+       <li> {{ tutoriel.name }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

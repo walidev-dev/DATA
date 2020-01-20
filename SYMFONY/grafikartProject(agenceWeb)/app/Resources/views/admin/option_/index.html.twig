@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+      {% include 'admin/message_flash.html.twig' %}
+        <div class="text-right">
+            <a href="{{ path('admin_option_new') }}" class="btn btn-lg btn-primary">Créer une nouvelle option</a>
+        </div>
+
+        <h1>La litse de toutes les options</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for option_ in option_s %}
+                <tr>
+                    <td>#{{ option_.id }}</td>
+                    <td>{{ option_.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_option_show', { 'id': option_.id }) }}" class="btn btn-secondary">
+                            Voir
+                        </a>
+                        <a href="{{ path('admin_option_edit', { 'id': option_.id }) }}" class="btn btn-link">
+                            Editer
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

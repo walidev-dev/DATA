@@ -1,0 +1,28 @@
+{% extends 'Advert/layout.html.twig' %}
+{% block title %} {{ parent() }} - Accueil{% endblock %}
+{% block body %}
+    <h1>Annonces</h1>
+    <hr style="border: 0.4px solid lightblue">
+    <h2>Liste des annonces : </h2>
+
+    {# LISTE DES ANNONCES #}
+    {% for advert in listAdverts %}
+        <ul>
+            <li>
+                <a href={{ path('app_platform_view',{'id':advert.id,'slug':advert.slug}) }}>
+                    {{ advert.title|capitalize }}
+                </a>
+                par {{ advert.author|capitalize }}, Le {{ advert.date|date('d/m/Y') }}
+            </li>
+        </ul>
+    {% endfor %}
+
+    {# PAGINATION #}
+    <ul class="pagination">
+        {% for i in range(1,pagesCount) %}
+            <li class="page-item {% if page == i %} active {% endif %}">
+                <a href="{{ path('app_platform_home',{'page':i}) }}" class="page-link">{{ i }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

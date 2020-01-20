@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <title>{% block title "Mon Site" %}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a href="#" class="navbar-brand">Mon super site</a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+            <a class="nav-link" href="{{ path('blog_index') }}">Blog</a>
+        </li>
+    </ul>
+    <a href="#" class="btn btn-dark">Se déconnecter</a>
+</nav>
+<div class="container mt-4">
+
+    {% block body %} {% endblock %}
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.locales.min.js"></script>
+<script>
+    timeago().render(document.querySelectorAll('.timeago'), 'fr')
+</script>
+</body>
+</html>

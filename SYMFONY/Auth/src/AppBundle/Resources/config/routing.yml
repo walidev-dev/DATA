@@ -1,0 +1,11 @@
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Security:login }
+logout:
+    path: /logout
+
+app_home:
+    path: /home
+    defaults: { _controller: AppBundle:Home:index }
+
+

@@ -1,0 +1,26 @@
+api_login_check:
+    path: /api/login_check
+
+gesdinet_jwt_refresh_token:
+    path: /api/token/refresh
+    defaults: { _controller: gesdinet.jwtrefreshtoken:refresh }
+
+app_register_user:
+    type: annotation
+    resource: '@AppBundle/Controller/RegistrationController.php'
+
+tasklists:
+    type: rest
+    resource: '@AppBundle/Controller/ListController.php'
+    prefix: api
+
+tasks:
+    type: rest
+    resource: '@AppBundle/Controller/TaskController.php'
+    prefix: api
+
+notes:
+    type: rest
+    resource: '@AppBundle/Controller/NoteController.php'
+    prefix: api
+

@@ -1,0 +1,10 @@
+tag:
+    resource: "@TagBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app_post:
+    resource: "@AppBundle/Controller/PostController.php"
+    type:     annotation
+
+
+

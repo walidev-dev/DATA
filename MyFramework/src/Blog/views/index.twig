@@ -1,0 +1,41 @@
+{% extends 'layout.twig' %}
+{% block title "Mes Articles" %}
+{% block body %}
+    <h1>Bienvenu sur le blog</h1>
+
+    {% for row in pagerFanta | batch(4) %}
+
+        <div class="card-deck">
+            {% for post in row %}
+                <div class="card">
+                    <div class="card-header">
+                        <a href="{{ path('blog_show',{slug:post.slug,id:post.id}) }}">
+                            {{ post.name }}
+                        </a>
+                        <p class="text-muted">
+                            {{ post.createdAt | ago }}
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ post.content | excerpt | nl2br }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('blog_show',{slug:post.slug,id:post.id}) }}" class="btn btn-primary">
+                            Voir l'article
+                        </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div><br>
+    {% endfor %} <br>
+
+    <div class="row justify-content-center">
+        {{ paginate(pagerFanta,'blog_index') }}
+    </div>
+
+
+{% endblock %}
+

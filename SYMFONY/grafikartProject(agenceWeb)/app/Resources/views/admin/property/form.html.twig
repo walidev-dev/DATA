@@ -1,0 +1,124 @@
+{{ form_start(form) }}
+
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.title) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.title) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.description) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.description) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.surface) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.surface) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.rooms) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.rooms) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.floor) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.floor) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.bedrooms) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.bedrooms) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.price) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.price) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.heat) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.heat) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.address) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.address) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.city) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.city) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.postal_code) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.postal_code) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.options) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.options) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.sold) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.sold) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col-md-3">
+        {{ form_label(form.imageFile) }}
+    </div>
+    <div class="col">
+        {{ form_widget(form.imageFile) }}
+    </div>
+</div>
+
+{# SUBMIT // SAVE #}
+<div class="form-row">
+    <div class="col-md-3"></div>
+    <div class="col">
+        {{ form_widget(form.save) }}
+    </div>
+</div>
+
+{{ form_end(form) }}

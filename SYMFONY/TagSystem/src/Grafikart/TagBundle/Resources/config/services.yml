@@ -1,0 +1,4 @@
+services:
+#    tag.example:
+#        class: Grafikart\TagBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

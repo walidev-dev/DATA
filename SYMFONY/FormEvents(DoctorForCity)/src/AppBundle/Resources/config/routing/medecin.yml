@@ -1,0 +1,24 @@
+medecin_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Medecin:index" }
+    methods:  GET
+
+medecin_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Medecin:show" }
+    methods:  GET
+
+medecin_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Medecin:new" }
+    methods:  [GET, POST]
+
+medecin_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Medecin:edit" }
+    methods:  [GET, POST]
+
+medecin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Medecin:delete" }
+    methods:  DELETE

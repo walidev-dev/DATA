@@ -1,0 +1,11 @@
+{% extends 'layout.twig' %}
+{% block title post.name %}
+{% block body %}
+  <h1>{{ post.name }}</h1>
+    <p class="text-muted">
+        {{ post.createdAt | ago}}
+    </p>
+    <p>
+        {{ post.content}}
+    </p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title 'Tous nos biens' %}
+{% block body %}
+
+    {#FORMULAIRE DE RECHERCHE#}
+    {% include 'property/property_form_search.html.twig' %}
+
+    {#AFFICHAGE DES BIENS#}
+    <div class="container">
+        <h1>Voir nos biens</h1>
+        <div class="row">
+            {% for property in properties %}
+                <div class="col-md-4">
+                    {% include 'property/_property.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(properties) }}
+        </div>
+    </div>
+{% endblock %}
