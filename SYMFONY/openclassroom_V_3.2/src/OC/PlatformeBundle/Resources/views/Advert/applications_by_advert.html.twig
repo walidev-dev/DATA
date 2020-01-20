@@ -1,0 +1,23 @@
+{% if applications is not empty %}
+    <h4 class="alert alert-info">Voici les candidatures qui correspondent à l'annonce choisie</h4>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>L'Auteur</th>
+            <th>Le Contenu</th>
+            <th>La Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for app in applications %}
+            <tr>
+                <td>{{ app.author }}</td>
+                <td>{{ app.content }}</td>
+                <td>{{ app.date|date("d/M/Y") }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <h4 class="alert alert-warning  ">il n'y pas encore de candidatures pour cette annonce ! </h4>
+{% endif %}

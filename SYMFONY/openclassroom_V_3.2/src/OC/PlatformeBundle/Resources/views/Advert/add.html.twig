@@ -1,0 +1,23 @@
+{% extends "OCPlatformeBundle::layout.html.twig" %}
+{% block title %}
+    L'ajout d'une annonce - {{ parent() }}
+{% endblock %}
+{% block body %}
+    <h3>Formulaire d'ajout d'une annonce</h3>
+
+    {% if listErrors is defined %}
+        {% if listErrors|length > 0 %}
+            {% for error in listErrors %}
+               <div class="alert alert-danger"> {{ error.message }}</div>
+            {% endfor  %}
+        {% endif %}
+    {% endif %}
+
+    <div class="well">
+        {{ form_start(form,{'attr':{'class':'form-'}}) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

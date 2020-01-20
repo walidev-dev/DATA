@@ -1,0 +1,10 @@
+{% extends "OCPlatformeBundle::layout.html.twig" %}
+ {% block title %} {{ parent() }} - Index {% endblock %}
+{% block body %}
+    {% for advert in listAdverts %}
+        <h3>{{ advert.title }}</h3>
+        <hr>
+    {% endfor %}
+    {#PAGINATION#}
+    {% include 'OCPlatformeBundle:Advert:index_pagination.html.twig' with {'page':page,'nbPages':nbPages} only %}
+{% endblock %}

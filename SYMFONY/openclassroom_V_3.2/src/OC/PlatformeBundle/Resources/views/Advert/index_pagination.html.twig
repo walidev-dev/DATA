@@ -1,0 +1,30 @@
+<style>
+    .pagination{
+        position: fixed;
+        bottom:200px;
+    }
+    .link-disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+</style>
+<ul class="pagination">
+    <li>
+        <a href="{{ path('oc_platform_home',{'page':(page-1)}) }}" {% if page==1 %} class="link-disabled" {% endif %} >
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {% for p in range(1,nbPages) %}
+        <li {% if p==page %} class="active" {% endif %}>
+            <a href="{{ path('oc_platform_home',{'page':p}) }}">
+                {{ p }}
+            </a>
+        </li>
+    {% endfor %}
+    <li>
+        <a href="{{ path('oc_platform_home',{'page':(page+1)}) }}"
+           {% if page==nbPages %} class="link-disabled" {% endif %} >
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+</ul>

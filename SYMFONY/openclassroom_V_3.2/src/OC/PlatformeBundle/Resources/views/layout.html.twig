@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock %}
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: 'Open Sans', sans-serif;
+                padding-top: 30px;
+                font-size: 20px;
+            }
+        </style>
+    {% endblock %}
+    <title>{% block title %}OC Plateforme {% endblock %}</title>
+</head>
+<body>
+<div class="container">
+    <div id="header" class="jumbotron">
+        <h1>Ma Plateforme d'annonces</h1>
+        <p>
+            Ce projet est propulsé par Symfony
+            et construit grace au MOOC OPenClassrooms et SensioLabs.
+            <a href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony"
+               class="btn btn-lg btn-primary">participer au MOOC</a>
+        </p>
+        Bonjour {{ app.user.username|default("") }}
+    </div>
+    <div class="row">
+        <div id="menu" class="col-md-4">
+            <h3>Les Annonces</h3>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('oc_platform_home') }}">Accueil</a></li>
+                <li><a href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
+                <li><a href="{{ path('oc_platform_advert_applications') }}">Candidatures par annonce</a></li>
+            </ul>
+            <h4>Derniéres Annonces</h4>
+            {#{{ render(controller("OCPlatformeBundle:Advert:menu",{'limit':3})) }}#}
+            {% include "OCPlatformeBundle:Advert:menu.html.twig" %}
+        </div>
+        <div id="content" class="col-md-8">
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p> Copyright &copy; {{ 'now'|date('d/m/Y') }}</p>
+        <h3>{{ webmaster }}</h3>
+    </footer>
+</div>
+</body>
+</html>

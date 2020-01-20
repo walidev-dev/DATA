@@ -1,0 +1,66 @@
+services:
+
+    # ANTISPAM
+    oc_platform.antispam:
+        class: OC\PlatformeBundle\Antispam\OCAntispam
+        arguments: ["@mailer","50"]
+        calls:
+            - [ setLocale,[%locale%]]
+
+    # ANTISPAM EXTENSION
+    oc_platform.twig.antispam_extension:
+        class: OC\PlatformeBundle\twig\AntispamExtension
+        arguments: ["@oc_platform.antispam"]
+        tags:
+            - { name: twig.extension}
+
+    # APPLICATION MAILER
+    oc_platform.email.application_mailer:
+        class: OC\PlatformeBundle\Email\ApplicationMailer
+        arguments: ["@mailer"]
+
+    # APPLICATION CREATION
+    oc_platform.doctrine_listener.application_creation:
+        class: OC\PlatformeBundle\DoctrineListener\ApplicationCreationListener
+        arguments: ["@oc_platform.email.application_mailer"]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    #ANTIFLOOD
+    oc_platform.validator.antiflood:
+        class: OC\PlatformeBundle\Validator\Antiflood
+        arguments: ["@request_stack","@doctrine.orm.entity_manager"]
+        tags:
+            - { name: validator.constraint_validator, alias: oc_platform_antiflood }
+
+    #BETA HTML ADDER
+    oc_platform.beta.beta_html_adder:
+        class: OC\PlatformeBundle\Beta\BetaHTMLAdder
+
+    #BETA HTML LISTENER
+    oc_platform.beta.beta_listener:
+        class: OC\PlatformeBundle\Beta\BetaListener
+        arguments: ["@oc_platform.beta.beta_html_adder","2018-06-01"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: processBeta }
+
+    # MESSAGE NOTIFICATOR
+    oc_platform.bigbrother.message_notificator:
+        class: OC\PlatformeBundle\Bigbrother\MessageNotificator
+        arguments: ["@mailer"]
+
+    # MESSAGE LISTENER
+    oc_platform.bigbrother.message_listener:
+        class: OC\PlatformeBundle\Bigbrother\MessageListener
+        arguments:
+            - "@oc_platform.bigbrother.message_notificator"
+            - ["Alexandre","Marine","Pierre"]
+        tags:
+            - { name: kernel.event_listener,event: oc_platform.post_message, method: processMessage }
+
+    # GLOBAL VAR IN TWIG
+    oc_platform.twig.global_var:
+        class: OC\PlatformeBundle\twig\GlobalVar
+        arguments: ['@twig','@doctrine.orm.entity_manager']
+        tags:
+            - { name: kernel.event_listener,event: kernel.request,method: onKernelRequest }

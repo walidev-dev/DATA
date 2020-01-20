@@ -1,0 +1,32 @@
+{% extends "OCPlatformeBundle::layout.html.twig" %}
+{% block title %} Candidatures par annonce - {{ parent() }} {% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    <div id="show"></div>
+    <script>
+        $(document).ready(function () {
+            var listAdverts = $('#list_adverts_Annonces');
+            var show = $("#show");
+            listAdverts.change(function () {
+                show.html('');
+                var index = $("#list_adverts_Annonces option:selected").index();
+                if (index > 0) {
+                    $.ajax({
+                        url: "{{ path('oc_platform_advert_applications') }}",
+                        type: "POST",
+                        data: {
+                            // value: listAdverts.text()
+                            advert_id: listAdverts.val()
+                        },
+                        success: function (rendered_twig) {
+                            show.html(rendered_twig);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}

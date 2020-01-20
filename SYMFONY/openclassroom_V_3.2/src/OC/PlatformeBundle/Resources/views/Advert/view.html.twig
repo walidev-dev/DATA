@@ -1,0 +1,26 @@
+{% extends "OCPlatformeBundle::layout.html.twig" %}
+{% block title %}
+    Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+{% block body %}
+    {% if advert.image is not null %}
+        <img src="{{ asset(advert.image.webPath)}}"
+             alt="{{ advert.image.alt }}">
+    {% endif %}
+    <h1>{{ advert.title }}</h1>
+    <h3>par {{ advert.author }} le {{ advert.date|date("d/m/Y") }}</h3>
+    <p>
+        <a href="{{ path('oc_platform_home') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('oc_platform_edit',{'id':advert.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier l'annonce
+        </a>
+        <a href="{{ path('oc_platform_delete',{'id':advert.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer cette annonce
+        </a>
+    </p>
+{% endblock %}

@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1.8;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #FFF;
+    padding: 28.8px 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+.topbar-menu {
+    float: left;
+}
+
+.topbar-menu a {
+    font-size: 1.0625rem;
+    color: #9F9F9F;
+    padding: 0 45px;
+}
+
+.topbar-menu a.active,
+.topbar-menu a:hover {
+    color: #000;
+}
+
+.social {
+    float: right;
+}
+
+.social a {
+    padding: 0 10px;
+    opacity: 0.5;
+}
+
+.social a:hover {
+    opacity: 1;
+}
+
+.banner {
+    height: 380.84px;
+    background: no-repeat center center / cover url('images/header-img.png');
+    margin-top: 91.16px;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    width: calc(100% - 387px);
+    background: #FFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.article {
+    position: relative;
+    padding-left: 338px;
+    max-width: 994px;
+    min-height: 203px;
+    margin: 43px auto;
+}
+
+.article-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 308px;
+    height: 203px;
+}
+
+.article-date {
+    font-size: 1.0625rem;
+    color: rgba(0, 0, 0, 0.60);
+    font-weight: 300;
+    margin-bottom: 7.6px;
+}
+
+.article-title {
+    font-size: 2.25rem;
+    font-family: 'Cardo', serif;
+    line-height: 1;
+    margin: 0 0 15.5px 0;
+}
+
+.article-title a {
+    color: #000;
+}
+
+.sidebar {
+    width: 387px;
+    background: #FBFBFB;
+    padding: 43px 57px;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-title {
+    font-weight: bold;
+    font-size: 1.875rem;
+    color: #000;
+    margin: 0 0 30.3px 0;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 17px;
+}
+
+.sidebar li:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar a {
+    font-size: 1.0625rem;
+    color: #9F9F9F;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar hr {
+    border: none;
+    height: 1px;
+    background: #C4C4C4;
+    margin: 42px 0 49px 0;
+}
+
+.sidebar hr:last-child {
+    display: none;
+}
+
+.footer {
+    clear: both;
+}
