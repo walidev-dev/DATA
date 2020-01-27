@@ -1,0 +1,3 @@
+post_index:
+    path: /posts
+    defaults: { _controller: AppBundle:Post:index }
