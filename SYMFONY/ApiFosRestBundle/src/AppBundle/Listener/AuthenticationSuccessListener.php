@@ -24,6 +24,10 @@ class AuthenticationSuccessListener
             'BEARER',
             $token,
             (new \DateTime())->add(new \DateInterval('PT' . $this->tokenTll . 'S'))
+	
+		//new \DateTime('+3600 seconds')
+		//new \DateTime('+1 hour')
+
         ));
     }
 }
