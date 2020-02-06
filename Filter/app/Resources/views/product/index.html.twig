@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title 'Tous Nos produits' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/nouislider.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {% include 'product/_filter.html.twig' with {form: form,min: min, max: max, errors: errors} only %}
+            </div>
+            <div class="col-md-9">
+
+                {% if products|length == 0 %}
+                    <div class="alert alert-info">désolais, y pas de résultat correspondant à votre recherche !</div>
+                {% else %}
+
+                <div class="grid">
+
+                    {% for product in products %}
+                        {% include 'product/_card.html.twig' with {product: product} only %}
+                    {% endfor %}
+
+                </div>
+                <div class="pagination" style="margin-top: 2rem">
+                    {{ knp_pagination_render(products) }}
+                </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('js/nouislider.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+
+{% endblock %}
+
+

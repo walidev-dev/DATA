@@ -1,0 +1,13 @@
+AppBundle\Entity\Category:
+    category_{1..10}:
+        name: <name()>
+
+AppBundle\Entity\Product:
+    product_{1..50}:
+        categories: '<numberBetween(1,5)>x @category_*'
+        name: <name()>
+        price: <numberBetween(50,40000)>
+        description: <text(50)>
+        image: http://picsum.photos/id/<numberBetween(400,800)>/290/180
+        promo: '10%? 1 : 0'
+        content: 'a'

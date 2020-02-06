@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <style>
+                .grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 20px;
+                }
+            </style>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="navbar navbar-dark bg-primary">
+        <a href="/" class="navbar-brand mb-0 h1">Commerce</a>
+    </div>
+    <div style="margin-top: 1rem;">
+        {% block body %}{% endblock %}
+    </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
