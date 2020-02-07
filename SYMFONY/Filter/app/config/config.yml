@@ -74,6 +74,8 @@ knp_paginator:
         filter_value_name: filterValue  # filter value query parameter name
     template:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'
+        #sortable: '@KnpPaginator/Pagination/font_awesome_sortable_link.html.twig'
+        sortable: 'pagination/sortable.html.twig'
 
 webpack_encore:
     output_path: "%kernel.project_dir%/web/build/"

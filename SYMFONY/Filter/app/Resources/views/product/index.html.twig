@@ -19,6 +19,11 @@
                     <div class="alert alert-info">désolais, y pas de résultat correspondant à votre recherche !</div>
                 {% else %}
 
+                    <div class="d-flex justify-content-end mb-2">
+                        {{ knp_pagination_sortable(products,'Prix','p.price') }}
+                        {{ knp_pagination_sortable(products,'Promo','p.promo') }}
+                    </div>
+
                 <div class="grid">
 
                     {% for product in products %}
